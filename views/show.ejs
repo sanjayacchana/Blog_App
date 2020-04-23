@@ -1,0 +1,32 @@
+<%- include ("partials/header") %>
+
+
+	<div class="ui main text container segment">
+		<div class="ui huge  header">
+			<h1>
+				<%= foundedBlog.title %>
+			</h1>
+		</div>
+		<div class="ui top attached">
+			<div class="item">
+				<img class="ui centered rounded image" src="<%= foundedBlog.image %>">
+				<div class="content">
+					<h4><%= foundedBlog.created.toDateString() %></h4>
+				</div>
+				<div class="description">
+					<p>
+						<%- foundedBlog.body %> <!--enables to add html  tags in textarea (<%- %>)-->
+					</p>
+				</div>
+	</div>
+	<a class="ui pink basic button" href="/blogs/<%= foundedBlog._id %>/edit">Edit</a>
+	<form class="ui form" action="/blogs/<%= foundedBlog._id %>?_method=DELETE" method="POST" style="display:inline">
+		<button class="ui red basic button">
+			Delete
+		</button>
+	</form>
+	<a class="ui purple basic button" href="/blogs">Go Back</a>
+	
+	
+
+<%- include ("partials/footer") %>
